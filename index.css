@@ -24,28 +24,6 @@ body {
 p {
   font-size: 12pt;
 }
-.button {
-  text-align:center;
-  font-size: 14pt;
-	height:31.08px;
-	width:55px;
-}
-.menu {
-	height:20.86px;
-	width:46px;
-}
-.ind {
-	font-family:"Indicator";
-	font-size:12;
-	width: 100%;
-}
-.disp {
-	font-family:"Disp";
-	font-size:18;
-	width: 100%;
-	height:40pt;
-	border-width: 0px;
-}
 .drag {
   position: relative;
 }
