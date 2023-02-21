@@ -1,0 +1,455 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Calculator</title>
+
+    <script src="./algebra-0.2.6.min.js"></script>
+
+    <!--dragging detector-->
+    <script src="./drag.js"></script>
+
+    <!--calculator's engine-->
+    <script src="./index.js"></script>
+	<script src="./Mem.js"></script>
+  </head>
+  <body onload="startTime();">
+    <form class="drag" name="calculator" id="calculator">
+      <table class="round-corner" style="background-color: #0000FF;" width="220" border="1">
+        <tr><td style="border: 0px;">
+          <table>
+            <tr>
+              <td><img height="20px" src="./windowicon.png" alt="windowicon"></td>
+              <td style="width: 99%; cursor: default;">
+                <strong id="title" style="color: white;">Calculator</strong>
+              </td>
+              <td>
+                <input
+                  type="button"
+                  name="hide"
+                  value="0"
+                  class="hide-button"
+                  onclick="hideWindow('calculator');"
+                />
+              </td>
+              <td>
+                <input
+                  type="button"
+                  name="max"
+                  value="1"
+                  class="max-button"
+                  disabled
+                />
+              </td>
+              <td>
+                <input
+                  type="button"
+                  name="close"
+                  value="r"
+                  class="close-button"
+                  onclick="hideWindow('calculator');"
+                />
+              </td>
+            </tr>
+          </table>
+        </td></tr>
+        <tr>
+          <td style="background-color: #ccc;" class="round-corner">
+            <table class="round-corner">
+              <tr>
+                <td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0">
+					<tr>
+						<td colspan="6">
+							<input 
+								class="ind" 
+								type="text" 
+								name="mem" 
+								size="1"  
+							/>
+							<br>
+						</td>
+					</tr>
+                    <tr>
+                      <td colspan="6">
+						            <textarea
+                          style="resize:none;"
+                          class="disp"
+                          name="mathinput"
+                          size="20"
+                          rows="2"
+                          onChange="CheckNumber(this.value)"
+                        ></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="6">
+                        <textarea
+                        class="disp"
+                        name="answer"
+                        size="20"
+                        rows="2"
+                        style="resize:none; width:100%; text-align:right;"
+                        onChange="CheckNumber(this.value)"
+                        ></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="6">
+                        <table border="0" cellpadding="0">
+                          <tr>
+                            <td>
+                              <input
+								                class="menu"
+                                type="button"
+                                name="negate"
+                                value="x"
+                                onClick="CheckNumber('x'); return false;"
+                              />
+                            </td>
+                            <td>
+                              <button 
+                                class="menu" 
+                                name="recip" 
+                                onClick="CheckNumber('^3'); return false;"
+                                >x<sup>3</sup>
+                              </button>
+                            </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <input
+                                  class="menu"
+                                  type="button"
+                                  name="negate"
+                                  value="(-)"
+                                  onClick="NegateButton(); return false;"
+                                />
+                              </td>
+                            <td>
+                              <button 
+                                class="menu" 
+                                name="recip" 
+                                onClick="Backspace(document.calculator.mathinput.value); CheckNumber('1/'+lastnum); return false;"
+                                >x<sup>-1</sup>
+                              </button>
+                            </td>
+                            <td>
+                              <button 
+                                class="menu" 
+                                name="recip" 
+                                onClick="CheckNumber('^2'); return false;"
+                                >x<sup>2</sup>
+                              </button>
+                            </td>
+                            <td>
+                              <input
+								                class="menu"
+                                type="button"
+                                name="percent"
+                                value="%"
+                                onClick="PercentButton(); return false;"
+                              />
+                            </td>
+                            <td>
+                              <input
+								                class="menu"
+                                type="button"
+                                name="sqrt"
+                                value="&radic;"
+                                onClick="SqrtButton(); return false;"
+                              />
+                            </td>
+                            <td>
+                              <input
+								                class="menu"
+                                type="button"
+                                name="solver"
+                                value="solve"
+                                onClick="eqnsolver(document.calculator.mathinput.value); return true;"
+                              />
+                            </td>
+                          </tr>
+                          <tr>
+
+                            <td>
+                              <input
+					                			class="menu"
+                                type="button"
+                                name="MC"
+                                value="MC"
+                                onClick="MemoryClear(); return false;"
+                              />
+                            </td>
+                            <td>
+                              <input
+					                			class="menu"
+                                type="button"
+                                name="MR"
+                                value="MR"
+                                onClick="MemoryRecall(Memory); return false;"
+                              />
+                            </td>
+                            <td>
+                              <input
+						                		class="menu"
+                                type="button"
+                                name="Mplus"
+                                value="M+"
+                                onClick="MemoryAdd(document.calculator.mathinput.value); return false;"
+                              />
+                            </td>
+                            <td>
+                              <input
+								                class="menu"
+                                type="button"
+                                name="Mminus"
+                                value="M-"
+                                onClick="MemoryDelete(document.calculator.mathinput.value); return false;"
+                              />
+                            </td>
+                            <td>
+                              <input
+								                class="menu"
+                                type="button"
+                                name="("
+                                value="("
+                                onClick="CheckNumber('('); return false;"
+                              />
+                            </td>
+                            <td>
+                              <input
+							                	class="menu"
+                                type="button"
+                                name=")"
+                                value=")"
+                                onClick="CheckNumber(')'); return false;"
+                              />
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr class="big">
+                      <td>
+                        <input
+                          type="button"
+                          name="calc7"
+                          class="button"
+                          value="7"
+                          onClick="CheckNumber('7'); return false;"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="button"
+                          name="calc8"
+                          class="button"
+                          value="8"
+                          onClick="CheckNumber('8'); return false;"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="button"
+                          name="calc9"
+                          class="button"
+                          value="9"
+                          onClick="CheckNumber('9'); return false;"
+                        />
+                      </td>
+                      <td>
+                        <input
+						              	style="font-size: 14pt; text-align:center;"
+                            type="button"
+                            name="backspace"
+                            class="button"
+                            value="DEL"
+                            onClick="Backspace(document.calculator.mathinput.value); return false;"
+                        />
+                      </td>
+                      <td>
+                        <input
+						              	style="font-size: 14pt; text-align:center;"
+                            type="reset"
+                            name="C"
+                            class="button"
+                            value="AC"
+                            onClick="ClearCalc(); return false;"
+                        />
+                      </td>
+                    </tr>
+                    <tr class="big">
+                      <td>
+                        <input
+                          type="button"
+                          name="calc4"
+                          class="button"
+                          value="4"
+                          onClick="CheckNumber('4'); return false;"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="button"
+                          name="calc5"
+                          class="button"
+                          value="5"
+                          onClick="CheckNumber('5'); return false;"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="button"
+                          name="calc6"
+                          class="button"
+                          value="6"
+                          onClick="CheckNumber('6'); return false;"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="button"
+                          name="multiply"
+                          class="button"
+                          value="&times;"
+                          onClick="CheckNumber('*'); return false;"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="button"
+                          name="divide"
+                          class="button"
+                          value="&divide;"
+                          onClick="CheckNumber('/'); return false;"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input
+                          type="button"
+                          name="calc1"
+                          class="button"
+                          value="1"
+                          onClick="CheckNumber('1'); return false;"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="button"
+                          name="calc2"
+                          class="button"
+                          value="2"
+                          onClick="CheckNumber('2'); return false;"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="button"
+                          name="calc3"
+                          class="button"
+                          value="3"
+                          onClick="CheckNumber('3'); return false;"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="button"
+                          name="plus"
+                          class="button"
+                          value="&plus;"
+                          onClick="CheckNumber('+'); return false;"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="button"
+                          name="minus"
+                          class="button"
+                          value="&minus;"
+                          onClick="CheckNumber('-'); return false;"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input
+                          type="button"
+                          name="calc0"
+                          class="button"
+                          value="0"
+                          onClick="CheckNumber('0'); return false;"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="button"
+                          name="dot"
+                          class="button"
+                          value="."
+                          onClick="CheckNumber('.'); return false;"
+                        />
+                      </td>
+                      <td>
+						<button 
+							style="font-size: 14pt; text-align:center;" 
+                            name="10^x"
+                            class="button"
+                            value=""
+                            onClick="CheckNumber('e+'); return false;"
+						>&times;10<sup>x</sup></button>
+                      </td>
+                      <td>
+                        <input
+                          type="button"
+                          name="dot"
+                          class="button"
+                          value="Ans"
+                          onClick="CheckNumber('Ans'); return false;"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="button"
+                          name="equal"
+                          class="button"
+                          value="exe"
+                          onClick="EqualButton(); return false;"
+                        />
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <footer
+      name="taskbar"
+      style="
+        background-color: #0000FF;
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+      "
+    >
+    
+    <div style=" background-image: url('Taskbarback.png'); background-size: contain;" class="navbar">
+      <a style="padding: 0px 0px;"> <img height="30px" src="./Taskbarmenu.png" style="border-top-right-radius: 100px 400px; border-bottom-right-radius: 100px 400px;"></a>
+      <a onclick="showWindow('calculator')"><img height="15px" src="./windowicon.png" alt="windowicon">Calculator</a>
+      <a><img height="15px" src="./notepad.png" alt="notepadicon">Notes</a>
+      <div style="width: 100%;"></div>
+      <a style="float: right;" id="txt"></a>
+    </div>  
+    </footer>  
+  </body>
+</html>
