@@ -28,7 +28,7 @@ function drags(e) {
     temp2 = parseInt(z.style.top + 0);
     x = ns6 ? e.clientX : event.clientX;
     y = ns6 ? e.clientY : event.clientY;
-    if (drgbl === true) {
+    if (drgbl) {
       document.onmousemove = move;
     } else {
       document.getElementById("title").innerHTML = "Press Ctrl!!";

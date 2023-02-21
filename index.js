@@ -19,3 +19,14 @@ function checkTime(i) {
   if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
   return i;
 }
+
+var menuOpen = false;
+function toggleMenu () {
+  if (menuOpen) {
+    document.getElementById("menu").style = "display: none;";
+    menuOpen = false;
+  } else {
+    document.getElementById("menu").style = "display: block;";
+    menuOpen = true;
+  }
+}

@@ -58,6 +58,7 @@
         </tr>
       </table>
     </form>
+    <!--taskbar-->
     <footer
       name="taskbar"
       style="
@@ -67,14 +68,24 @@
         width: 100%;
       "
     >
-    
     <div style=" background-image: url('./images-main/Taskbarback.png'); background-size: contain;" class="navbar">
-      <a style="padding: 0px 0px;"> <img height="30px" src="./images-main/Taskbarmenu.png" style="border-top-right-radius: 100px 400px; border-bottom-right-radius: 100px 400px;"></a>
+      <a style="padding: 0px 0px;"> <img onclick="toggleMenu();" height="30px" src="./images-main/Taskbarmenu.png" style="border-top-right-radius: 100px 400px; border-bottom-right-radius: 100px 400px;"></a>
       <a onclick="showWindow('calculator')"><img height="15px" src="./images-main/windowicon.png" alt="windowicon">Calculator</a>
       <a><img height="15px" src="./images-main/notepad.png" alt="notepadicon">Notes</a>
       <div style="width: 100%;"></div>
       <a style="float: right; text-align: right; width: 126; background-image: url('./images-main/Taskbaricondock.png'); background-size: cover;" id="txt"></a>
     </div>  
-    </footer>  
+    </footer> 
+    <!--Menu-->
+    <form id="menu">
+      <table class="round-corner" style="position: fixed; min-width: 325px; min-height: 400px; background-color: #0000FF; left: 0px; bottom: 26px;" width="220" border="1">
+        <tr>
+          <td style="background-color: #ccc;" class="round-corner">
+              <p style=" height: 100%; width: 97%;">ay la ptm</p>
+          </td>
+        </tr>
+      </table>
+    </form>
+ 
   </body>
 </html>
