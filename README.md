@@ -1,2 +1,2 @@
 # Calculator
-I started this project last friday so that's why it is so basic.
+The calculator is not the actual windows xp calculator but I will add it as soon as possible
