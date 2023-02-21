@@ -1,2 +1,2 @@
 # Calculator
-The calculator is not the actual windows xp calculator but I will add it as soon as possible
+I made this project because I challenged myself to make Windows XP without React, Node.js, or some other JavaScript libraries
