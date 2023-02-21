@@ -1,0 +1,93 @@
+
+@font-face {
+	font-family: "marlett-local";
+	src: url('./true\ type\ fonts/marlett.ttf');
+}
+body {
+  font-family: sans-serif;
+  background-image: url('./images-main/background.jpg');
+  background-attachment:fixed;
+  background-size: cover;
+  position: fixed;
+}
+p {
+  font-size: 12pt;
+}
+.drag {
+  position: relative;
+}
+.window-resize {
+	resize: both;
+	overflow: hidden;
+}
+.round-corner {
+	border-radius: 5px;
+}
+.hide-button {
+	border-color: #fff;
+	border-width: 2px;
+	border-radius: 5px;
+	background-color: #00f;
+	color: #fff;
+	height: 22px;
+	width: 22px;
+	text-align: center;
+	padding: 1px 1px;
+	font-family: "marlett-local";
+}
+.max-button {
+	border-color: #fff;
+	border-width: 2px;
+	border-radius: 5px;
+	background-color: #00f;
+	color: #aaa;
+	height: 22px;
+	width: 22px;
+	text-align: center;
+	padding: 1px 1px;
+	font-family: "marlett-local";
+}
+.close-button {
+	border-color: #fff;
+	border-width: 2px;
+	border-radius: 5px;
+	background-color: red;
+	color: #fff;
+	height: 22px;
+	width: 22px;
+	text-align: center;
+	padding: 1px 1px;
+	font-family: "marlett-local";
+}
+/*Taskbar*/
+.navbar {
+	overflow: hidden;
+	background-color: #333;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+  }
+  
+  .navbar a {
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 5px 10px;
+	text-decoration: none;
+	font-size: 17px;
+	cursor: default;
+  }
+  
+  .navbar a:hover {
+	background: #f1f1f1;
+	color: black;
+  }
+  
+  .navbar a.active {
+	background-color: #2baa04;
+	color: white;
+	border-top-right-radius: 100px 400px;
+	border-bottom-right-radius: 100px 400px;
+  }

@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Windows XP</title>
+
+    <!--dragging detector-->
+    <script src="./drag.js"></script>
+
+    <!--calculator's engine-->
+    <script src="./index.js"></script>
+  </head>
+  <body onload="startTime();">
+    <form class="drag" name="calculator" id="calculator">
+      <table class="round-corner window-resize" style="background-color: #0000FF;" width="220" border="1">
+        <tr><td style="border: 0px;">
+          <table>
+            <tr>
+              <td><img height="20px" src="./images-main/windowicon.png" alt="windowicon"></td>
+              <td style="width: 99%; cursor: default;">
+                <strong id="title" style="color: white;">Calculator</strong>
+              </td>
+              <td>
+                <input
+                  type="button"
+                  name="hide"
+                  value="0"
+                  class="hide-button"
+                  onclick="hideWindow('calculator');"
+                />
+              </td>
+              <td>
+                <input
+                  type="button"
+                  name="max"
+                  value="1"
+                  class="max-button"
+                  disabled
+                />
+              </td>
+              <td>
+                <input
+                  type="button"
+                  name="close"
+                  value="r"
+                  class="close-button"
+                  onclick="hideWindow('calculator');"
+                />
+              </td>
+            </tr>
+          </table>
+        </td></tr>
+        <tr>
+          <td style=" height: 100%; width: 97%; min-width: 200px; min-height: 400px; background-color: #ccc;" class="round-corner">
+            <iframe class="round-corner" style=" height: 100%; width: 99%; min-width: 325px; min-height: 400px;" src="calc.exe/index.html"></iframe>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <footer
+      name="taskbar"
+      style="
+        background-color: #0000FF;
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+      "
+    >
+    
+    <div style=" background-image: url('./images-main/Taskbarback.png'); background-size: contain;" class="navbar">
+      <a style="padding: 0px 0px;"> <img height="30px" src="./images-main/Taskbarmenu.png" style="border-top-right-radius: 100px 400px; border-bottom-right-radius: 100px 400px;"></a>
+      <a onclick="showWindow('calculator')"><img height="15px" src="./images-main/windowicon.png" alt="windowicon">Calculator</a>
+      <a><img height="15px" src="./images-main/notepad.png" alt="notepadicon">Notes</a>
+      <div style="width: 100%;"></div>
+      <a style="float: right; text-align: right; width: 126; background-image: url('./images-main/Taskbaricondock.png'); background-size: cover;" id="txt"></a>
+    </div>  
+    </footer>  
+  </body>
+</html>
