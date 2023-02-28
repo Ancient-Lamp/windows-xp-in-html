@@ -16,8 +16,9 @@ body {
 .button {
     text-align:center;
     font-size: 14pt;
-      height:31.08px;
-      width:55px;
+    height:31.08px;
+    width:55px;
+    box-shadow: 0px 0px 3px rgb(0 0 0 / 30), inset 1px 1px 1px rgb(0 0 0 / 30);
   }
   .menu {
       height:20.86px;
