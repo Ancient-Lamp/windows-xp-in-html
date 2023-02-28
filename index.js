@@ -12,6 +12,7 @@ function startTime() {
   m = checkTime(m);
   s = checkTime(s);
   document.getElementById('txt').innerHTML =  h + ":" + m;// + ":" + s;
+  document.getElementById("menu").style = "display: none;";
   setTimeout(startTime, 1000);
 }
 
@@ -21,6 +22,7 @@ function checkTime(i) {
 }
 
 var menuOpen = false;
+
 function toggleMenu () {
   if (menuOpen) {
     document.getElementById("menu").style = "display: none;";
