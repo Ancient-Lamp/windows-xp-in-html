@@ -25,6 +25,9 @@ body {
   .menu {
       height:20.86px;
       width:46px;
+      box-shadow: 0px 0px 3px rgb(0 0 0 / 30), 
+                  inset -1px -1px 3px rgb(0 0 0 / 30);
+      border-width: 0;
   }
   .ind {
       font-family:"Indicator";
