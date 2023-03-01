@@ -3,6 +3,10 @@
 	font-family: "marlett-local";
 	src: url('./true\ type\ fonts/marlett.ttf');
 }
+@font-face {
+	font-family: "Trebuchet-window";
+	src: url('./true\ type\ fonts/TREBUC.TTF');
+}
 body {
   font-family: sans-serif;
   background-image: url('./images-main/background.jpg');
@@ -15,6 +19,9 @@ p {
 }
 .drag {
   position: relative;
+}
+#title {
+  font-family: "Trebuchet-window";
 }
 .window-resize {
 	resize: both;
