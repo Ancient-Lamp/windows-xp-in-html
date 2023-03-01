@@ -58,6 +58,52 @@
         </tr>
       </table>
     </form>
+    <form class="drag" name="notepad" id="notepad">
+      <table class="round-corner window-resize" style="background-color: #0000FF;" width="220" border="1">
+        <tr><td style="border: 0px;">
+          <table>
+            <tr>
+              <td><img height="20px" src="./images-main/notepad.png" alt="windowicon"></td>
+              <td style="width: 99%; cursor: default;">
+                <strong id="title" style="color: white;">Notepad</strong>
+              </td>
+              <td>
+                <input
+                  type="button"
+                  name="hide"
+                  value="0"
+                  class="hide-button"
+                  onclick="hideWindow('notepad');"
+                />
+              </td>
+              <td>
+                <input
+                  type="button"
+                  name="max"
+                  value="1"
+                  class="max-button"
+                  disabled
+                />
+              </td>
+              <td>
+                <input
+                  type="button"
+                  name="close"
+                  value="r"
+                  class="close-button"
+                  onclick="hideWindow('notepad');"
+                />
+              </td>
+            </tr>
+          </table>
+        </td></tr>
+        <tr>
+          <td style=" height: 100%; width: 97%; min-width: 200px; min-height: 400px; background-color: #ccc;" class="round-corner">
+            <iframe class="round-corner" style=" height: 100%; width: 99%; min-width: 325px; min-height: 400px;" src="notepad.exe/index.html"></iframe>
+          </td>
+        </tr>
+      </table>
+    </form>
     <!--taskbar-->
     <footer
       name="taskbar"
@@ -71,7 +117,7 @@
     <div style=" background-image: url('./images-main/Taskbarback.png'); background-size: contain;" class="navbar">
       <a style="padding: 0px 0px;"> <img onclick="toggleMenu();" height="30px" src="./images-main/Taskbarmenu.png" style="border-top-right-radius: 100px 400px; border-bottom-right-radius: 100px 400px;"></a>
       <a onclick="showWindow('calculator')"><img height="15px" src="./images-main/windowicon.png" alt="windowicon">Calculator</a>
-      <a><img height="15px" src="./images-main/notepad.png" alt="notepadicon">Notes</a>
+      <a onclick="showWindow('notepad')"><img height="15px" src="./images-main/notepad.png" alt="notepadicon">Notes</a>
       <div style="width: 100%;"></div>
       <a style="float: right; text-align: right; width: 126; background-image: url('./images-main/Taskbaricondock.png'); background-size: cover;" id="txt"></a>
     </div>  
@@ -81,7 +127,7 @@
       <table class="round-corner" style="position: fixed; min-width: 325px; min-height: 400px; background-color: #0000FF; left: 0px; bottom: 26px;" width="220" border="1">
         <tr>
           <td style="background-color: #ccc;" class="round-corner">
-              <p style=" height: 100%; width: 97%;">ay la ptm</p>
+              <p style=" height: 100%; width: 97%;">WIP</p>
           </td>
         </tr>
       </table>
