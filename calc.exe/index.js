@@ -118,6 +118,6 @@ function eqnsolver (arg) {
 
 var buttons = document.getElementsByClassName("button");
 
-buttons.onclick = function (e) {
-  buttons.style = "box-shadow: 0px 0px 3px rgb(0 0 0 / 30), inset 1px 1px 3px rgb(0 0 0 / 30);"
+document.getElementsByClassName("button").onclick = function (e) {
+  document.getElementsByClassName("button").style = "box-shadow: 0px 0px 3px rgb(0 0 0 / 30), inset 1px 1px 3px rgb(0 0 0 / 30);"
 }
