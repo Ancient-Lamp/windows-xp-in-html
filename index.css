@@ -8,7 +8,7 @@
 	src: url('./true\ type\ fonts/TREBUC.TTF');
 }
 body {
-  font-family: sans-serif;
+  font-family: "Arial", sans-serif;
   background-image: url('./images-main/background.jpg');
   background-attachment:fixed;
   background-size: cover;
