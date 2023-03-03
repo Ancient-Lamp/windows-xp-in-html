@@ -42,6 +42,9 @@ document.onkeydown = function (e) {
   if (e.key === "Control") {
     drgbl = true;
   }
+  else if (e.key === "Meta") {
+    toggleMenu();
+  }
 }
 document.onkeyup = function (e) {
     drgbl = false;
